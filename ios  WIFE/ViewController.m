@@ -9,9 +9,6 @@
 #import "ViewController.h"
 #import <corefoundation/corefoundation.h>
 
-#import <sys/socket.h>
-#import <netinet/in.h>
-#import <arpa/inet.h>
 #import <unistd.h>
 
 
@@ -31,14 +28,6 @@
 #import "getgateway.h"
 #import <arpa/inet.h>
 
-#import "getgateway.h"
-#import <arpa/inet.h>
-#import <netdb.h>
-#import <netinet/in.h>
-#import <netinet6/in6.h>
-#import <ifaddrs.h>
-#import <SystemConfiguration/SCNetworkReachability.h>
-#include <sys/socket.h>
 
 
 
@@ -53,14 +42,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-//    apple80211Open = dlsym(libHandle, "Apple80211Open");
 
     
-    NSLog(@"ip====%@",[ViewController  localIPAddress]);
+    NSLog(@"ip地址====%@",[ViewController  localIPAddress]);
     
-    NSLog(@"wifi-----%@",[self getWIFIDic]);
+    NSLog(@"wifi信息-----%@",[self getWIFIDic]);
     
-    NSLog(@"===%@",[self getCurrentWifiName]);
+    NSLog(@"wifi名字===%@",[ViewController getWifiName]);
     
     NSLog(@"111===%@",[self fetchSSIDInfo]);
     
@@ -156,7 +144,7 @@
     if( CNSetSupportedSSIDs(arrayRef)) {
         NSArray *ifs = (__bridge_transfer id)CNCopySupportedInterfaces();
         CNMarkPortalOnline((__bridge CFStringRef)(ifs[0]));
-        NSLog(@"%@", ifs);
+        NSLog(@"wifi===%@", ifs);
     }
     
     
@@ -194,6 +182,34 @@
     }
     return info;
 }
+
+
++ (NSString *)getWifiName
+{
+  NSString *wifiName = @"Not Found";
+  
+  CFArrayRef myArray = CNCopySupportedInterfaces();
+  
+  if (myArray != nil) {
+    
+    CFDictionaryRef myDict = CNCopyCurrentNetworkInfo(CFArrayGetValueAtIndex(myArray, 0));
+    
+    if (myDict != nil) {
+      
+      NSDictionary *dict = (NSDictionary*)CFBridgingRelease(myDict);
+      
+      
+      
+      wifiName = [dict valueForKey:@"SSID"];
+      
+    }
+    
+  }
+  
+  NSLog(@"wifiName:%@", wifiName);
+  return wifiName;
+}
+
 
 
 //- (void)scanNetworks
