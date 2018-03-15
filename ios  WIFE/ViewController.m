@@ -40,8 +40,8 @@
   NSLog(@"ip地址=======%@",[ViewController  localIPAddress]);
   NSLog(@"wifi信息=====%@",[self getWIFIDic]);
   NSLog(@"wifi名字=====%@",[ViewController getWifiName]);
-  NSLog(@"111=========%@",[self fetchSSIDInfo]);
-  NSLog(@"ssid===%@",[self getDeviceSSID]);
+  NSLog(@"wifi信息其二=========%@",[self fetchSSIDInfo]);
+  NSLog(@"SSID===%@",[self getDeviceSSID]);
 
   UIButton *button = [[UIButton alloc]initWithFrame:CGRectMake(100, 100, 100, 100)];
   button.backgroundColor = [UIColor redColor];
@@ -52,7 +52,7 @@
 }
 
 - (void)click {
-  NSLog(@"ip===%@",[self routerIp]);
+  NSLog(@"ip地址===%@",[self routerIp]);
 }
 
 
@@ -302,7 +302,6 @@
   struct ifaddrs *interfaces = NULL;
   struct ifaddrs *temp_addr = NULL;
   int success = 0;
-  
   
   // retrieve the current interfaces - returns 0 on success
   success = getifaddrs(&interfaces);
