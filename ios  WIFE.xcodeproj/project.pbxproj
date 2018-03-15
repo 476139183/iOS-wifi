@@ -186,6 +186,7 @@
 				TargetAttributes = {
 					208316D01B9BDFA000D5CAD8 = {
 						CreatedOnToolsVersion = 6.3.2;
+						DevelopmentTeam = 7TNL83WLRC;
 					};
 					208316E91B9BDFA000D5CAD8 = {
 						CreatedOnToolsVersion = 6.3.2;
@@ -369,6 +370,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 7TNL83WLRC;
 				INFOPLIST_FILE = "ios  WIFE/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -381,6 +383,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 7TNL83WLRC;
 				INFOPLIST_FILE = "ios  WIFE/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
